@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HGM Services Inc - Professional House Washing & Painting Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0f4c81;
+            --primary-green: #488b49;
+            --secondary-blue: #3e8dba;
+            --accent-orange: #f5832a;
+            --light-gray: #f8f9fa;
+            --dark-text: #333333;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-text);
+        }
+        
+        .bg-primary-blue {
+            background-color: var(--primary-blue);
+        }
+        
+        .bg-primary-green {
+            background-color: var(--primary-green);
+        }
+        
+        .bg-secondary-blue {
+            background-color: var(--secondary-blue);
+        }
+        
+        .bg-accent-orange {
+            background-color: var(--accent-orange);
+        }
+        
+        .text-primary-blue {
+            color: var(--primary-blue);
+        }
+        
+        .text-primary-green {
+            color: var(--primary-green);
+        }
+        
+        .text-accent-orange {
+            color: var(--accent-orange);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-accent:hover {
+            background-color: #e47520;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-heading {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .section-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(15, 76, 129, 0.7), rgba(72, 139, 73, 0.7)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .client-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--primary-blue);
+        }
+        
+        .client-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: white;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+        
+        .navbar {
+            background-color: transparent !important; /* Fundo transparente */
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: transparent !important; /* Mantém transparente ao rolar */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Adiciona sombra opcional */
+        }
+        
+        .nav-link {
+            position: relative;
+            margin: 0 0.5rem;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--accent-orange);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            transform: scaleX(1);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 80%;
+            max-width: 300px;
+            background-color: white;
+            z-index: 1000;
+            padding: 2rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        .overlay.open {
+            display: block;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .about-image:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--primary-green);
+            border-radius: 8px;
+            z-index: -1;
+        }
+        
+        .contact-info {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+        
+        .mobile-nav-link {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--dark-text);
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-link:hover {
+            color: var(--primary-blue);
+            padding-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                padding: 100px 0;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed-top py-3 px-4 w-full transition-all duration-300 z-50 bg-transparent">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Substituindo o texto pelo logo com tamanho aumentado -->
+            <a href="#home" class="navbar-brand">
+                <img src="logo1.jpg" alt="HGM Services Logo" class="h-14">
+            </a>
+            
+            <ul class="desktop-nav hidden md:flex space-x-6">
+                <li><a href="#home" class="nav-link text-black hover:text-gray-700">Home</a></li>
+                <li><a href="#about" class="nav-link text-black hover:text-gray-700">About Us</a></li>
+                <li><a href="#services" class="nav-link text-black hover:text-gray-700">Services</a></li>
+                <li><a href="#gallery" class="nav-link text-black hover:text-gray-700">Gallery</a></li>
+                <li><a href="#reviews" class="nav-link text-black hover:text-gray-700">Reviews</a></li>
+                <li><a href="#contact" class="nav-link text-black hover:text-gray-700">Contact</a></li>
+            </ul>
+            
+            <button class="mobile-nav-toggle block md:hidden text-black focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="overlay"></div>
+    <div class="mobile-menu">
+        <div class="flex justify-between items-center mb-8">
+            <div class="text-xl font-bold">
+                <span class="text-primary-blue">HGM</span> <span class="text-primary-green">Services</span>
+            </div>
+            <button class="close-menu focus:outline-none">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        
+        <ul>
+            <li><a href="#home" class="mobile-nav-link">Home</a></li>
+            <li><a href="#about" class="mobile-nav-link">About Us</a></li>
+            <li><a href="#services" class="mobile-nav-link">Services</a></li>
+            <li><a href="#gallery" class="mobile-nav-link">Gallery</a></li>
+            <li><a href="#reviews" class="mobile-nav-link">Reviews</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="mt-8">
+            <div class="mb-4">
+                <i class="fas fa-phone mr-2 text-primary-blue"></i> +1 978-317-1152
+            </div>
+            <div class="mb-4">
+                <i class="fas fa-envelope mr-2 text-primary-blue"></i> hgmservices22@gmail.com
+            </div>
+            <div class="flex mt-6">
+                <a href="https://www.instagram.com/hgmservicesinc" target="_blank" class="social-icon mr-2">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon mr-2">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon mr-2">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Transform Your Home with Excellence</h1>
+                <p class="text-xl md:text-2xl mb-8">Professional house washing, painting & renovation services to breathe new life into your property.</p>
+                <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                    <a href="#services" class="btn-primary">Our Services</a>
+                    <a href="#contact" class="btn-accent">Get Free Estimate</a>
+                </div>
+                <div class="mt-8 p-2 bg-white bg-opacity-20 inline-block rounded">
+                    <p class="text-sm">Fully Insured | Free Estimates | MA & NH Areas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <h2 class="section-heading text-3xl md:text-4xl font-bold">Our Services</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12">We offer a wide range of professional services to refresh and transform your home</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- House Washing -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/713297/pexels-photo-713297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="House Washing">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary-blue">House Washing</h3>
+                        <p class="mb-4">Our professional house washing services remove dirt, mold, mildew, and algae without damaging surfaces. We clean:</p>
+                        <ul class="mb-6 space-y-1">
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Roofs</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Siding & Walls</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Driveways & Sidewalks</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Fences & Decks</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Painting Services -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/6474300/pexels-photo-6474300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Painting Services">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary-blue">Painting Services</h3>
+                        <p class="mb-4">Our professional painting services provide smooth, even, and high-quality finishes. We offer:</p>
+                        <ul class="mb-6 space-y-1">
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Interior & Exterior Painting</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Cabinet Refinishing</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Drywall Repair</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Custom Color Matching</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Deck & Fence Staining -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.pexels.com/photos/7546601/pexels-photo-7546601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Deck & Fence Staining">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary-blue">Deck & Fence Staining</h3>
+                        <p class="mb-4">Restore and protect your outdoor spaces with our professional staining services:</p>
+                        <ul class="mb-6 space-y-1">
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Deck Staining & Sealing</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Fence Restoration</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Wood Protection</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Custom Finishes</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Cabinet Refinishing -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1572025442646-866d16c84a54?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Cabinet Refinishing">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary-blue">Cabinet Refinishing</h3>
+                        <p class="mb-4">Transform your kitchen or bathroom with our cabinet refinishing services:</p>
+                        <ul class="mb-6 space-y-1">
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Custom Cabinet Staining</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Cabinet Painting</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Hardware Replacement</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Kitchen & Bathroom Cabinets</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Bathroom Renovations -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1521783593447-5702b9bfd267?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Bathroom Renovations">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary-blue">Bathroom Renovations</h3>
+                        <p class="mb-4">Transform your bathroom into a spa-like retreat with our renovation services:</p>
+                        <ul class="mb-6 space-y-1">
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Tub & Shower Installation</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Vanity & Cabinet Renovation</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Tile Work & Flooring</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Fixture & Plumbing Upgrades</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Drywall Repair -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1588854337236-6889d631faa8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Drywall Repair">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary-blue">Drywall Repair & Painting</h3>
+                        <p class="mb-4">Our drywall services provide flawless finishes for your walls:</p>
+                        <ul class="mb-6 space-y-1">
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Hole & Crack Repair</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Water Damage Restoration</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Texture Matching</li>
+                            <li><i class="fas fa-check text-primary-green mr-2"></i> Smooth Surface Finishing</li>
+                        </ul>
+                        <a href="#contact" class="btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="btn-accent">Get a Free Quote</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="About HGM Services" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About HGM Services</h2>
+                    <p class="mb-4">HGM Services Inc. is your trusted partner for home improvement and maintenance. We specialize in house washing, painting, and renovations to help transform your property and enhance its value.</p>
+                    <p class="mb-6">Our team of skilled professionals is committed to delivering exceptional results with attention to detail and superior craftsmanship. We are fully insured and serve both residential and commercial properties in Massachusetts and New Hampshire.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="mr-4 text-primary-blue">
+                                <i class="fas fa-medal text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Expert Craftsmanship</h3>
+                                <p class="text-sm">Quality work with precise attention to detail</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="mr-4 text-primary-blue">
+                                <i class="fas fa-dollar-sign text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Affordable Solutions</h3>
+                                <p class="text-sm">Quality doesn't have to be expensive</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="mr-4 text-primary-blue">
+                                <i class="fas fa-clock text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Fast & Reliable</h3>
+                                <p class="text-sm">On-time service without cutting corners</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="mr-4 text-primary-blue">
+                                <i class="fas fa-leaf text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">Eco-Friendly</h3>
+                                <p class="text-sm">Safe for your family, pets, and plants</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn-primary">Get Free Estimate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <h2 class="section-heading text-3xl md:text-4xl font-bold">Our Work Gallery</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12">View our portfolio of completed projects and transformations</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="House Washing Before/After">
+                    <div class="gallery-caption">
+                        <h3 class="font-bold">House Washing</h3>
+                        <p>Exterior cleaning and restoration</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560184897-67f4a3f9a7fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Interior Painting">
+                    <div class="gallery-caption">
+                        <h3 class="font-bold">Interior Painting</h3>
+                        <p>Living room transformation</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/32509619/pexels-photo-32509619.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Deck Staining">
+                    <div class="gallery-caption">
+                        <h3 class="font-bold">Deck Staining</h3>
+                        <p>Outdoor space renovation</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Kitchen Cabinet Refinishing">
+                    <div class="gallery-caption">
+                        <h3 class="font-bold">Kitchen Cabinet Refinishing</h3>
+                        <p>Custom staining and painting</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/4258283/pexels-photo-4258283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Bathroom Renovation">
+                    <div class="gallery-caption">
+                        <h3 class="font-bold">Bathroom Renovation</h3>
+                        <p>Complete bathroom makeover</p>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Fence Staining">
+                    <div class="gallery-caption">
+                        <h3 class="font-bold">Fence Staining</h3>
+                        <p>Property enhancement and protection</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://www.instagram.com/hgmservicesinc" target="_blank" class="btn-primary">
+                    <i class="fab fa-instagram mr-2"></i> View More on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="section-heading text-3xl md:text-4xl font-bold">Client Reviews</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12">What our satisfied customers have to say about our services</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="testimonial-card">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Client 1">
+                    </div>
+                    <div class="text-center mb-4">
+                        <div class="text-yellow-500 mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="font-bold">Sarah Johnson</h3>
+                        <p class="text-sm text-gray-500">Andover, MA</p>
+                    </div>
+                    <p class="text-center italic">"HGM Services did an excellent job on my house washing. They removed all the mold and mildew that had built up over the years. My home looks brand new! Their team was professional, on time, and very thorough."</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="testimonial-card">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Client 2">
+                    </div>
+                    <div class="text-center mb-4">
+                        <div class="text-yellow-500 mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="font-bold">Michael Thomas</h3>
+                        <p class="text-sm text-gray-500">Nashua, NH</p>
+                    </div>
+                    <p class="text-center italic">"I hired HGM Services to paint the interior of my home and I couldn't be happier with the results. They were professional, detail-oriented, and finished the job ahead of schedule. The quality of their work is exceptional!"</p>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="testimonial-card">
+                    <div class="client-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Client 3">
+                    </div>
+                    <div class="text-center mb-4">
+                        <div class="text-yellow-500 mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="font-bold">Rebecca Martinez</h3>
+                        <p class="text-sm text-gray-500">Lowell, MA</p>
+                    </div>
+                    <p class="text-center italic">"The HGM team refinished my kitchen cabinets and transformed my outdated kitchen into a modern, beautiful space. They were knowledgeable, professional, and the quality of their work exceeded my expectations. Highly recommended!"</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="btn-accent">
+                    Share Your Experience
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <h2 class="section-heading text-3xl md:text-4xl font-bold">Contact Us</h2>
+            <p class="text-center max-w-2xl mx-auto mb-12">Get in touch for a free estimate or to learn more about our services</p>
+            
+            <!-- Centralizando a div -->
+            <div class="flex justify-center items-center">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-primary-blue">Contact Information</h3>
+                    
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 class="font-bold">Phone</h4>
+                            <p>+1 978-317-1152</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 class="font-bold">Email</h4>
+                            <p>hgmservices22@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 class="font-bold">Service Area</h4>
+                            <p>Massachusetts & New Hampshire</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 class="font-bold">Business Hours</h4>
+                            <p>Monday - Saturday: 7:00 AM - 7:00 PM</p>
+                            <p>Sunday: By appointment only</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-3">Follow Us</h4>
+                        <div class="flex">
+                            <a href="https://www.instagram.com/hgmservicesinc" target="_blank" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary-blue text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Home?</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-8">Contact HGM Services today for a free estimate on your next project. We're committed to delivering excellence and bringing your vision to life.</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="tel:+19783171152" class="btn-accent">
+                    <i class="fas fa-phone mr-2"></i> Call: +1 978-317-1152
+                </a>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Instagram Feed Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-8">Follow Us on Instagram <i class="fab fa-instagram text-accent-orange"></i></h2>
+            <p class="mb-8">Check out our latest projects and transformations</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+                <!-- Instagram Feed Placeholders -->
+                <div class="aspect-square overflow-hidden">
+                    <a href="https://www.instagram.com/hgmservicesinc" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Instagram Post" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </a>
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <a href="https://www.instagram.com/hgmservicesinc" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1560184897-67f4a3f9a7fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Instagram Post" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </a>
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <a href="https://www.instagram.com/hgmservicesinc" target="_blank">
+                        <img src="https://images.pexels.com/photos/4258283/pexels-photo-4258283.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Instagram Post" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </a>
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <a href="https://www.instagram.com/hgmservicesinc" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Instagram Post" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </a>
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <a href="https://www.instagram.com/hgmservicesinc" target="_blank">
+                        <img src="https://images.pexels.com/photos/713297/pexels-photo-713297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Instagram Post" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </a>
+                </div>
+                <div class="aspect-square overflow-hidden">
+                    <a href="https://www.instagram.com/hgmservicesinc" target="_blank">
+                        <img src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Instagram Post" class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8">
+                <a href="https://www.instagram.com/hgmservicesinc" target="_blank" class="text-accent-orange font-bold hover:underline">
+                    @hgmservicesinc <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">HGM Services Inc.</h3>
+                    <p class="mb-4">Professional house washing, painting services, and renovations that bring new life to your property.</p>
+                    <p>Fully insured. Serving MA & NH areas.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-accent-orange transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-accent-orange transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-accent-orange transition-colors">Services</a></li>
+                        <li><a href="#gallery" class="hover:text-accent-orange transition-colors">Gallery</a></li>
+                        <li><a href="#reviews" class="hover:text-accent-orange transition-colors">Reviews</a></li>
+                        <li><a href="#contact" class="hover:text-accent-orange transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Our Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="hover:text-accent-orange transition-colors">House Washing</a></li>
+                        <li><a href="#services" class="hover:text-accent-orange transition-colors">Interior & Exterior Painting</a></li>
+                        <li><a href="#services" class="hover:text-accent-orange transition-colors">Deck & Fence Staining</a></li>
+                        <li><a href="#services" class="hover:text-accent-orange transition-colors">Cabinet Refinishing</a></li>
+                        <li><a href="#services" class="hover:text-accent-orange transition-colors">Bathroom Renovations</a></li>
+                        <li><a href="#services" class="hover:text-accent-orange transition-colors">Drywall Repair</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <i class="fas fa-phone mr-3 mt-1"></i>
+                            <span>+1 978-317-1152</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-envelope mr-3 mt-1"></i>
+                            <span>hgmservices22@gmail.com</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                            <span>Serving Massachusetts & New Hampshire</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="flex mt-6">
+                        <a href="https://www.instagram.com/hgmservicesinc" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 text-center text-sm">
+                <p>&copy; 2025 HGM Services Inc. All rights reserved. <br>  Developed by @matheus.ia_engineer and @awqyq </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-accent-orange text-white w-12 h-12 rounded-full flex items-center justify-center opacity-0 invisible transition-all duration-300 shadow-lg">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100');
+            }
+        });
+        
+        // Mobile menu
+        const mobileMenuToggle = document.querySelector('.mobile-nav-toggle');
+        const closeMenuBtn = document.querySelector('.close-menu');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const overlay = document.querySelector('.overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('open');
+            overlay.classList.toggle('open');
+            document.body.classList.toggle('overflow-hidden');
+        }
+        
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        closeMenuBtn.addEventListener('click', toggleMobileMenu);
+        overlay.addEventListener('click', toggleMobileMenu);
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMobileMenu();
+            });
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // You would normally handle form submission to a server here
+            
+            // For demo purposes, we'll just show an alert
+            alert('Thank you for your message! We will get back to you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+``` 
